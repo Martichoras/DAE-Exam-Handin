@@ -1,4 +1,4 @@
-P4-Project-report-latex
+DAE-PROJECT
 =======================
 ## Lige nogle tommelfingerregler at huske ##
 

@@ -1,0 +1,9 @@
+(1) Should a one or two-tailed test be used if we want to know if there is a significant difference in gaming time between the two types of feedback? How many degrees of freedom?
+
+\textbf{ANSWER:} Two-tailed. We're looking for a difference, i.e. non-specific. Thus the null-hypothesis states that there's no difference between the two types of feedback. One tail says that auditory feedback gives the best result while the other tail says visual feedback is best.
+
+Degrees of freedom is 18 (2 test with 10 results for each [2*(10-1)])
+
+(2) Use the correct t-test and answer the question whether there is a significant difference (=.05).
+
+\textbf{ANSWER:} Use a dependant t-test, as each participants has been used in both tests (auditory & visual). First test for homogeneity of variance (kstest / smirnof).

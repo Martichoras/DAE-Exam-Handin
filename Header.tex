@@ -1,15 +1,15 @@
 \documentclass[11pt,a4paper]{report}
 
 \usepackage[a4paper,
-			twoside,
 			left=1.5in,
-			right=1.0in,
+			right=1.5in,
 			height=9.0in,
 			headheight=14pt]{geometry}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 
-\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE,LO]{\thepage}
+\fancyhead[LE,RO]{\leftmark}
 
 \usepackage{url}
 \usepackage[utf8x]{inputenc}
@@ -117,7 +117,7 @@ Authors: \\[\baselineskip]
 %----------------------------------------------------------------------------------------
 %	BUILD SECTION
 %----------------------------------------------------------------------------------------
-
+\newgeometry{twoside,left=1.5in,right=1.0in,height=9.0in, headheight=14pt}
 \tableofcontents
 
 \chapter{Statistical Questions}

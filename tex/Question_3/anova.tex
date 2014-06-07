@@ -1,0 +1,24 @@
+\subsubsection{Multiple Comparisons}
+While t-test allows for the testing for cohesion between two mean values, it can often be insufficient when trying to calculate mean values of multiple test statistics. If more than two mean values are to be calculated, it must be done with pairwise testing. Every test increases the risk of committing type 1 errors i.e. accidentally rejecting a hypothesis that might be true. Given a 5\% level of significance, the risk is thus 5\% per test. Therefore, if five mean values are to be calculated (m1=m2=m3=m4=m5), the number of required tests would be 10, because all combinations must be executed. The combinatory conditions are calculated as follows:
+
+\begin{equation}
+\binom{n}{m} = {\frac{n!}{(m(m-n)!)}} 
+\end{equation}\\
+Meaning we will have the following amount of combinations:
+
+\begin{equation}
+\binom{5}{2} = {\frac{5!}{(2(5-2)!)}} = 10 
+\end{equation}\\
+This entails that every combination increases the uncertainty of type 1 errors, and that the aggregated likelihood that a type 1 error will not be present in any of the tests is:
+
+\begin{equation}
+1-0,95^{10}= 0,598 = 59,8\%
+\end{equation}\\
+Meaning that the likelihood that an error will be present is approximately 40,2\%. The risk of committing a type 1 error will thus, increase explosively when the t-test is applied to mean-value comparisons of more than two populations.
+\\
+
+\subsubsection{Analysis of Variance (ANOVA)}
+This increased risk can be very damaging for the credibility of any test; therefore it may be beneficial to eliminate as many confounding factors as possible. An \textit{analysis of variance}-test (ANOVA) may advantageously be used, as it is capable of comparing several mean values at once, and computing the variance.  To use ANOVA, one must apply the variance within each population as well as the variance between the populations. The formula for the 1-way ANOVA-test, also referred to as F-test, can thus be written:
+\begin{equation}
+F = {\frac{between-group-variables}{within-group-variables}
+\end{equation}

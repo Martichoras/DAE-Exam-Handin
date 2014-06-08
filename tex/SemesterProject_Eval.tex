@@ -1,16 +1,18 @@
 % Chapter 'Evaluation'
 
-\section{Project Methods}\footnote{This following part has, partially, been taken from our project, as we felt wasteful when practically rewriting information.}
+\section{Project Methods}\footnote{This following part has, partially, been taken from our project, as we felt wasteful when practically rewriting information. We feel certain that the correct information can be conveyed in a responsible manner, given due self-acknowledgement.}
 	\subsection{Hypothesis}
+		To reiterate, our hypotheses were: \emph{$H_0:$ two knn-classifiers with a different k and otherwise identical, will not result in significantly different confusion tables} and \emph{$H_alt:$ two knn-classifiers with a different k and otherwise identical, will result in significantly different confusion tables.}
+		
 		In our project we tested several audio features and feature configurations.
 		We tested window sizes of 20ms, 10ms, and 5ms; and window skips of 10ms, 5ms, 2ms respectively. This was the case for all features using windows: Mel Frequency Cepstral Coefficients (MFCC), Spectral Flux, Spectral Centroid, Spectral Skew, and Spectral Rolloff. Only the first 20 MFCC coefficients was used. The Root Mean Square (RMS) and Zero Crossing Rate (ZCR) was calculated over the entire sound.
 		
-		To determine if a difference in the independent variable $k$ had any significant effect on the resulting confusion tables (see Table \ref{table:eval:explanatory}), the chi squared test of association was used. This was done between two vectorized confusion tables calculated with all variables, except $k$, constant. We compared all resulting unique pairs of tables. Since we tested over 10 different K, but only on unique combinations of $K_1$ and $K_2$, the amount of tests done in total was $Tests = 10*9/2 = 45$. We have chosen that the null hypothesis can be disputed, if any calculated probability $p < \alpha$. Further, the Bonferroni correction\citep{bonferroni} was applied to $\alpha=0.05$, such that $\alpha=\alpha/45 = 0.00\overline{1}$.
+		To determine if a difference in the independent variable $k$ had any significant effect on the resulting confusion tables (see Table \ref{table:eval:explanatory}), the chi squared test of association was used. We do have the independent variables 'feature' and 'feature configuration', although we know for a fact that they are used between-group, and that our groups (the sounds from the dataset) are exactly identical. That means that we can reliably say that we are manipulating only $k$, but just testing under different conditions unrelated to the classification method. Under each condition (each unique feature/configuration), the output confusion table from two knn-classifiers with only a different $k$, was compared. We compared all resulting unique pairs of tables using the chi squared test. Since we tested over 10 different $k$, but only on unique combinations of $K_1$ and $K_2$, the amount of tests done in total was $Tests = 10*9/2 = 45$. We have chosen that the null hypothesis can be disputed, if any calculated probability $p < \alpha$. Further, the Bonferroni correction\citep{bonferroni} was applied to $\alpha=0.05$, such that $\alpha=0.05/45 = 0.00\overline{1}$.
 		
 	\subsection{Measures}
 		A confusion table was created for each test (each unique combination of variables). This was shown in percentages (or rather, on a scale from 0 and 1). Overall accuracy was calculated, along with precision, recall, and F-score for each sound class individually. For the sake of compactness, all the measures was included in an extended confusion table, as shown in the explanatory table \ref{table:eval:explanatory}. 
 		The most important measure, for the sake of measuring our transcription system, would be the precision, that is, the amount of correctly transcribed sounds over the actual amount of that sound class.
-		Recall should just be ignored, since we only test on the dataset, which means that we always test on all available samples of any given class, meaning that the observed amount would be the same as the total amount. This would be different, had the segmentation been part of the evaluation. When looking at results, we judged the performance primarily by accuracy and precision.
+		Recall should just be ignored, since we only test on the dataset, which means that we always test on all available samples of any given class, meaning that the observed amount would be the same as the total amount. This would be different, had the segmentation been part of the evaluation. When looking at results, we judged the performance primarily by accuracy and precision. Some of these measures could have been relevant to use for tests other than the chi squared, but that was not what we did at the time. We know that it is a valid and reliable measure, as we are only really looking for any difference, and as it is purely computational.
 
 			\begin{table}
 				\centering
@@ -48,7 +50,7 @@
 	
 	
 	\subsection{Training and Test Sets}
-		The annotated beatboxing sound dataset used, consists of sound segments, segmented based on the manual annotations. The training and test sets of sound samples for the KNN classifier were randomly chosen from the same population (the dataset). It was distributed between the training and test set in a 70\%/30\% ratio, accordingly, for each class. This means there will not be a fixed number of sounds for each class (neither total nor divided), but rather a fixed distribution between the number of training and test sounds for each class. We can do this instead of e.g. k-fold cross validation, due to scale of our collected dataset. The ratio was suggested by our supervisor\footnote{Bob L. Sturm}. The composition of the entire dataset has been summarized in table \ref{table:eval:datasetComposition}. 
+		The annotated beatboxing sound dataset used, consists of sound segments, segmented based on the manual annotations. The training and test sets of sound samples for the KNN classifier were randomly chosen from the same population (the dataset). It was distributed between the training and test set in a 70\%/30\% ratio, accordingly, for each class. This means there will not be a fixed number of sounds for each class (neither total nor divided), but rather a fixed distribution between the number of training and test sounds for each class. We can do this instead of e.g. k-fold cross validation, due to scale of our collected dataset. The ratio was suggested by our supervisor\footnote{Bob L. Sturm} as a good balance for machine learning. The composition of the entire dataset has been summarized in table \ref{table:eval:datasetComposition}. 
 		Furthermore, all sounds with a duration less than the windowsize used for feature calculation, were removed before testing, since calculation was impossible on such short sounds. This was done before splitting the dataset, such as to make sure we did not distort the 70/30 distribution.
 
 		\begin{table}
@@ -71,7 +73,16 @@
  
 \section{Project Results}
 	
-	For all results found, some interpretation of the data and statistics will be presented, although it will be kept short due to the breadth of configurations tested. Only the relevant results will be shown and discussed, based on the accuracy, however the other measures will be considered as well. Results of the $X^2$ tests will be summarized and explained.asp\ref{app:RMS:9}). Some configurations had slightly higher precision in classes 's' and 'hh', although this seems minimal (see e.g. appendix  \ref{app:rms:k6} and \ref{app:rms:k8}). The worst observed was using $K=1$, with accuracy 53.9\% see appendix \ref{app:RMS:1:worst}. All results from for the RMS feature can be found in appendix \ref{app:res:rms}. The $X^2$ test revealed no significant differences between any two $K$ (see all p in \ref{xlrms11}).
+	For all results found, some interpretation of the data and statistics will be presented, although it will be kept short due to the breadth of configurations tested. Only the relevant results will be shown and discussed, based on the accuracy, however the other measures will be considered as well. Results of the $X^2$ tests will be summarized and explained. All data can be found in appendix \ref{app:res}. 
+
+	%
+	% RMS
+	%
+	
+	\subsection{Root Mean Square}
+
+	
+		The best results using the RMS feature vector was observed using $K=9$ with accuracy 61.5\% (see appendix \ref{app:RMS:9}). Some configurations had slightly higher precision in classes 's' and 'hh', although this seems minimal (see e.g. appendix  \ref{app:rms:k6} and \ref{app:rms:k8}). The worst observed was using $K=1$, with accuracy 53.9\% see appendix \ref{app:RMS:1:worst}. All results from for the RMS feature can be found in appendix \ref{app:res:rms}. The $X^2$ test revealed no significant differences between any two $K$ (see all p in \ref{xlrms11}).
 
 		
 	%

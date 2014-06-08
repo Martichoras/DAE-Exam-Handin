@@ -1,6 +1,6 @@
 % Chapter 'Evaluation'
 
-\section{Methods}
+\section{Project Methods}\footnote{This following part has, partially, been taken from our project, as we felt wasteful when practically rewriting information.}
 	\subsection{Hypothesis}
 		In our project we tested several audio features and feature configurations.
 		We tested window sizes of 20ms, 10ms, and 5ms; and window skips of 10ms, 5ms, 2ms respectively. This was the case for all features using windows: Mel Frequency Cepstral Coefficients (MFCC), Spectral Flux, Spectral Centroid, Spectral Skew, and Spectral Rolloff. Only the first 20 MFCC coefficients was used. The Root Mean Square (RMS) and Zero Crossing Rate (ZCR) was calculated over the entire sound.
@@ -69,7 +69,7 @@
 		\end{table}	
 			
  
-\section{Results}
+\section{Project Results}
 	
 	For all results found, some interpretation of the data and statistics will be presented, although it will be kept short due to the breadth of configurations tested. Only the relevant results will be shown and discussed, based on the accuracy, however the other measures will be considered as well. Results of the $X^2$ tests will be summarized and explained.asp\ref{app:RMS:9}). Some configurations had slightly higher precision in classes 's' and 'hh', although this seems minimal (see e.g. appendix  \ref{app:rms:k6} and \ref{app:rms:k8}). The worst observed was using $K=1$, with accuracy 53.9\% see appendix \ref{app:RMS:1:worst}. All results from for the RMS feature can be found in appendix \ref{app:res:rms}. The $X^2$ test revealed no significant differences between any two $K$ (see all p in \ref{xlrms11}).
 

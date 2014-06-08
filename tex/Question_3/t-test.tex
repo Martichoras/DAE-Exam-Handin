@@ -1,0 +1,110 @@
+% DESCRIPTION FOR POINT 1.1 -----------------------------------
+\hspace{0pt} \\
+\noindent\fbox{\begin{minipage}{0.98\textwidth}
+\textbf{1.1.} In a test of how gaming performance was affected by different kinds of feedback, 10 participants were measured. All participants played the game twice, once with auditory, and once with visual feedback. The type of feedback given first was counter-balanced across the group. The table below displays the measured time (in seconds) it took for the gamers to complete the final level of the game for the two conditions.
+\end{minipage}}
+
+% QUESTION 1.1 (1) --------------------------------------------
+\noindent\fbox{\begin{minipage}{0.98\textwidth}
+\begin{enumerate}[label=\textbf{(\arabic*)}]\setcounter{enumi}{0}
+	\item Should a one or two-tailed test be used if we want to know if there is a significant difference in gaming time between the two types of feedback? How many degrees of freedom?
+\end{enumerate}\end{minipage}}
+
+% ANSWER ------------------------------------------------------
+\hspace{0pt} \\
+In this test we are looking for a difference in the gaming time between the two types of feedback (auditory and visual). This means we do not have a specific hypothesis, e.g. that visual feedback would give a shorter gaming time. The tests should instead tell us if one or the other type of feedback is best. The null-hypothesis then states that there is no difference between auditory and visual feedback. We have now conducted that the test we are looking at is non-specific, thus we need to use a two-tailed test, where each tail would tell us if one or the other type of feedback would give us a shorter gaming time(XX ; Andy Field p.155-156).
+
+For each of the two samples of the feedback types 10 persons were tested giving a total of 20. The degrees of freedom for the overall test is thus the sum of the sample sizes minus one for each sample. The degrees of freedom for the samples are then 18 or 9 for each sample.
+
+% QUESTION 1.1 (2) --------------------------------------------
+\hspace{0pt} \\
+\noindent\fbox{\begin{minipage}{0.98\textwidth}
+\begin{enumerate}[label=\textbf{(\arabic*)}]\setcounter{enumi}{1}
+	\item Use the correct t-test and answer the question whether there is a significant difference (=.05).
+\end{enumerate}\end{minipage}}
+
+% ANSWER ------------------------------------------------------
+\hspace{0pt} \\
+Before we can do a t-test to test for a significant difference, we have to make sure that the samples come from normal distributions with a homogeneity of variance. First we test for homogeneity of variance between the two samples (auditory and visual feedback) using Bartlett's test. Here we assume that the population from which the two samples came are normal distributed. In the figure \ref{fig:2-1-1_vartestn} we see the statistics with a p-value supporting the null-hypothesis that the two samples do in fact have a homogeneity of variance. In the corresponding box plot, we can see that both samples have the approximately same properties such as the median and the inter-quartile range. These properties also suggests that the variances might be similar.
+
+\begin{figure}[t]
+	\centering
+	\begin{subfigure}[t]{0.48\textwidth}
+		\includegraphics[width=\textwidth]{fig/{2.1.1_vartestn_stats}.png}
+		\caption{Statistics}
+		\label{subfig:2-1-1_stats}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.48\textwidth}
+		\includegraphics[width=\textwidth]{fig/{2.1.1_vartestn_boxplot}.png}
+		\caption{Boxplot}
+		\label{subfig:2-1-1_boxplot}
+	\end{subfigure}
+	
+	\caption{Results from a Bartlett's test for equal variances. In the statistics \ref{subfig:2-1-1_stats} the p-value indicates that difference in the variances from the two samples are non-significant at the 0.05 level.}
+	\label{fig:2-1-1_vartestn}
+\end{figure}
+
+Next we want to ensure that both samples come from a normal distributed population. For this we use the Kolmogorov-Smirnov test, where we standardize our samples and test for the null-hypothesis that the two samples come from standard normal distributions. The test yields the values $p=0.9811$ and $p=0.9897$ supporting the null-hypothesis.
+
+Using a paired t-test on the two matched samples gives a p-value of $p=0.0319$ indicating that there is in fact a significant difference between the two types of feedback given (auditory and visual). With an alpha of $\alpha=0.05$ we can clearly determine that auditory feedback does not give the same gaming time as with visual feedback.
+
+With all that said we have to take into account that we only have sample sizes of $N=10$. This means that even though the t-test rejects the null-hypothesis that there is no difference between the two types of feedback, it can be difficult to determine if it actually is the type of feedback that makes the difference and not some other factors. Andy Field (XX) suggests that because a sample of a size beneath $N=30$ is messy, it can be difficult to determine.
+
+%------------------------------------------------------
+
+\paragraph{1.2 (1)What type of t-test should you use? Independent samples or paired?} \hspace{0pt} \\
+If we assume that both samples are taken from observing the same 19 participants twice, the two samples are then dependent of each other. This means that we cannot use an independent t-test but instead we use a dependent paired t-test.
+
+\paragraph{1.2 (2)What probability is there of obtaining these particular mean values purely by chance?} \hspace{0pt} \\
+By following the same steps as above, we first need to validate that the samples have a homogeneity of variance and come from a normal distributed population. Testing for homogeneity of variance we get the results presented in figure \ref{fig:2-1-2_vartestn}. As we can see it seems that that the two samples do not have very similar variances giving us a problem when trying to use the t-test. If we then test for normal distribution of the two samples on 5 minutes and 30 minutes we get $p=0.0285$ and $p=0.0573$ correspondingly. These values indicates that the sample on 5 minutes does differ from a standard normal distribution while the 30 minutes sample does not. Again this would make a t-test less valid.
+
+Doing the actual t-test will yield a p-value of $p=0.0031$ indicating a difference in intellectual engagement caused by the amount of time playing the game, i.e. 5 minutes or 30. However, since the validations of homogeneity of variance and of normal distribution, we might make a mistake stating that playing-time do make a difference.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[h]{0.48\textwidth}
+		\includegraphics[width=\textwidth]{fig/{2.1.2_vartestn_stats}.png}
+		\caption{Statistics}
+		\label{subfig:2-1-2_stats}
+	\end{subfigure}
+	\begin{subfigure}[h]{0.48\textwidth}
+		\includegraphics[width=\textwidth]{fig/{2.1.2_vartestn_boxplot}.png}
+		\caption{Boxplot}
+		\label{subfig:2-1-2_boxplot}
+	\end{subfigure}
+	
+	\caption{Results from a Bartlett's test for equal variances.}
+	\label{fig:2-1-2_vartestn}
+\end{figure}
+
+\paragraph{1.2 (3)Is there a significant difference?} \hspace{0pt} \\
+Look in (3).
+
+%------------------------------------------------------
+
+\paragraph{1.3 (1)What type of t-test should you use? Independent samples or paired?} \hspace{0pt} \\
+Again we assume that the two samples uses the same 19 participants, thus the samples are dependent of each other. Therefore we must use a dependent/paired t-test.
+
+\paragraph{1.3 (2)What probability is there of obtaining these particular mean values purely by chance?} \hspace{0pt} \\
+Following the exact same steps we find that there is not any significant difference in the variances of the two samples given the data presented in figure \ref{fig:2-1-3_vartestn}. This is derived from the p-value of $p=0.788$ that clearly lies above the $0.05$ significance level. The test for normal distribution shows us that with the p-values of $p=0.1131$ and $p=0.1512$ the corresponding samples of the mouse \& keyboard and the Wii are deemed to belong to a normal distributed population.
+Now we can perform the t-test between the two samples, which will give us a result of $p=0.00044$ clearly indicating a significant difference in physical engagement caused by changing the type of controller, i.e. mouse \& keyaboard or Wii.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[h]{0.48\textwidth}
+		\includegraphics[width=\textwidth]{fig/{2.1.3_vartestn_stats}.png}
+		\caption{Statistics}
+		\label{subfig:2-1-3_stats}
+	\end{subfigure}
+	\begin{subfigure}[h]{0.48\textwidth}
+		\includegraphics[width=\textwidth]{fig/{2.1.3_vartestn_boxplot}.png}
+		\caption{Boxplot}
+		\label{subfig:2-1-3_boxplot}
+	\end{subfigure}
+	
+	\caption{Results from a Bartlett's test for equal variances.}
+	\label{fig:2-1-3_vartestn}
+\end{figure}
+
+\paragraph{1.3 (3)Is there a significant difference?} \hspace{0pt} \\
+Look in (3).

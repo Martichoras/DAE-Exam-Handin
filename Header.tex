@@ -28,9 +28,9 @@
 \usepackage{epstopdf}
 \usepackage{caption}
 \usepackage{subcaption}
+\newcolumntype{"}{@{\hskip\tabcolsep\vrule width 1pt\hskip\tabcolsep}}
 \usepackage{enumitem}
 \usepackage{float}
-
 
 % Code snippet setup ---- START
 \usepackage{listings}
@@ -127,6 +127,11 @@ Authors: \\[\baselineskip]
 
 \chapter{Semester Project}
 \input{tex/SemesterProject.tex}
+\input{tex/SemesterProject_Intro.tex}
+\input{tex/Q4_TrueScientificExperiment.tex}
+\input{tex/Q4_lacks.tex}
+\input{tex/SemesterProject_Eval.tex}
+\input{tex/Q4_End.tex}
 
 \bibliography{sources}
 \bibliographystyle{apalike}
@@ -134,6 +139,8 @@ Authors: \\[\baselineskip]
 \begin{appendices}
 \chapter{Matlab Scripts}
 \input{tex/appendices/Matlab-Code.tex}
+\chapter{Project Results}
+\input{tex/appendices/test/test.tex}
 \end{appendices}
 
 \end{document}

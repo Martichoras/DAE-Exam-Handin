@@ -28,7 +28,7 @@
 \usepackage{epstopdf}
 \usepackage{caption}
 \usepackage{subcaption}
-
+\newcolumntype{"}{@{\hskip\tabcolsep\vrule width 1pt\hskip\tabcolsep}}
 
 % Code snippet setup ---- START
 \usepackage{listings}
@@ -126,10 +126,15 @@ Authors: \\[\baselineskip]
 \chapter{Semester Project}
 \input{tex/SemesterProject.tex}
 \input{tex/SemesterProject_Intro.tex}
-\input{tex/SemesterProject_Eval.tex}
 \input{tex/Q4_TrueScientificExperiment.tex}
 \input{tex/Q4_lacks.tex}
+\input{tex/SemesterProject_Eval.tex}
+\input{tex/Q4_End.tex}
 
 \bibliography{sources}
 \bibliographystyle{apalike}
+
+\chapter{Results}
+\input{tex/appendices/test/test.tex}
+
 \end{document}

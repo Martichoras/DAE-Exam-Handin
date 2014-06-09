@@ -14,11 +14,11 @@ This entails that every combination increases the probability of type 1 errors, 
 \begin{equation}
 1-0,95^{10}= 1-0,599 = 40,1\%
 \end{equation}\\
-Hence, the probability  that at least one type 1 error will be present is approximately 40,1\%. The risk of committing a type 1 error will thus, increase explosively when the t-test is applied to mean-value comparisons of more than two populations.
+Hence, the probability  that at least one type 1 error will be present is approximately 40,1\%. The risk of committing a type 1 error will thus, increase tremendously when the t-test is applied to mean-value comparisons of more than two populations.
 \\
 
 \subsection{Analysis of Variance (ANOVA)}
-This increased risk can be very damaging for the credibility of any test; therefore it may be beneficial to eliminate as many confounding factors as possible. An \textit{analysis of variance}-test (ANOVA) may advantageously be used, as it is capable of comparing several mean values at once, and computing the variance.  To use ANOVA, one must apply the variance within each population as well as the variance between the populations. The formula for the 1-way ANOVA-test, also referred to as F-test, can thus be written:\\
+The increased risk of type 1 errors when comparing more than two means with a t-test (see above) can be very damaging for the credibility of any test. To get around this problem you can adjust the level of significance so that each of the tests are performed more strict (e.g. using the Benforretti-correction) or you can simply choose another form of test. An \textit{analysis of variance}-test (ANOVA) may advantageously be used, as it is capable of comparing several mean values simultaneously using the variance within the groups as well as between the groups.  The formula for the 1-way ANOVA-test follows an F-distribution and can be written as:\\
 
 \[F=\frac{between-group-variables}{within-group-variables}\]
 \\
@@ -29,17 +29,20 @@ It is appropriate both logically and feasibly to start out with expanding the te
 
 When using the ANOVA test a number of assumptions need to be fulfilled:
 \begin{enumerate}
-\item{The samples are normally distributed}
-\item{The samples have the same variance (homogeneity of variance)}
-\item{The samples are independent}
+\item{The samples are normally distributed.}
+\item{The samples have the same variance (homogeneity of variance.)}
+\item{The samples are independent.}
 \end{enumerate}
 
 Violations of assumption (1) can be acceptable, depending on how close the distribution is to the normal.
 Violations of assumption( 2) will lead to inaccurate F-statistics. If the variances are significantly different, we can try to correct the problem by transforming the data or do a non-parametric test.
 If assumption (3) is violated the F-statistics cannot be assumed to have an F-distribution. This means an increased probability of type II errors. 
 Assumption (1) and (2) can be tested, whereas we have to look at the data in order to determine whether assumption (3) is a good assumption or not. In the case of the data from the 10th semester project, the samples cannot be assumed to be independent because it is the same 19 test subjects, that generates all the data. Hence, we need a new assumption:
-(3a) Sphericity – the relationship between one pair of conditions is similar to the relationship of another pair of conditions \citep{Field_a}.
-This assumption can be tested with the Mauchly’s test, which test the hypothesis, that the variance af the difference between conditions are equal \citep{Design}. Unfortunately we did not succeed in running this test in MATLAB, as the function is unknown. 
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item{Sphericity – the relationship between one pair of conditions is similar to the relationship of another pair of conditions \citep{Field_a}.}
+\end{enumerate}
+This assumption can be tested with the Mauchly’s test, which test the hypothesis, that the variance af the difference between conditions are equal \citep{Design}. Unfortunately we did not succeed in running this test in MATLAB, as the function is unknown, hence we will proceed as if the samples are independent.
 When using the repeated ANOVA, the test-statistics are generated using the variance within treatment and the variance between treatments.
 
 
@@ -63,7 +66,7 @@ When using the repeated ANOVA, the test-statistics are generated using the varia
 
 In question 1.2 we tested the two samples (after 5 and 30 minutes) for normality, and we again perform the KS-test on the sample after 15 minutes. The KS-test shows, that we cannot reject the hypothesis, that the sample is normally distributed. As seen in the resulting figures of the ANOVA-test (fig. \ref{ANOVA_1}) we get a notched boxplot for the intellectual engagement after 5, 15 and 30 minutes. Although it is apparent that the medians are located similarly around 4 in the three groups, there are some considerable differences between them. After 5 minutes the grading ranges from 1 to 4, while after 15 and 30 minutes they range from 3 to 5. The notches in the figures specify the confidence interval (CI) around the mean, and it can tell us something about variance within each group. As previously specified one of the assumptions and requirements for the ANOVA-test is that there is similar variance (homogeneity of variance).  Although the variance after 5 and 15 minutes appears to be close to each other, the variance after 30 is less. The assumption of variance-cohesion can be tested with a Levene- variance test (vartestn in MATLAB), and the p-value from this test is 0,055 (5,5\%), hence we cannot reject that the three groups have the same variance.\\
 
-The ANOVA table (fig. \ref{ANOVA_1}, (a) Statistics) generated by the one-way ANOVA-test generates an F-test statistic of 10,64 which gives a P-value of 0,0001 (0,001\%) which is way below our 5\% level of significance. Thus we can reject the null-hypothesis that there has been given similar grades for intellectual engagement after 5, 15 and 30 minutes.
+The ANOVA table (fig. \ref{ANOVA_1}, (a) Statistics) generated by the one-way ANOVA-test generates an F-test statistic of 10,64 which gives a P-value of 0,0001 (0,01\%) which is way below our 5\% level of significance. Thus we can reject the null-hypothesis that there has been given similar grades for intellectual engagement after 5, 15 and 30 minutes.
 
 \begin{figure}[h]
 	\centering
